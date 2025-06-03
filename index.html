@@ -153,7 +153,7 @@
             padding: 100px 20px; 
             background: #f9f9f9; 
         }
-        .gallery { 
+      .gallery { 
             display: grid; 
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
             gap: 20px; 
@@ -173,7 +173,49 @@
         .gallery img:hover { 
             transform: scale(1.05); 
         }
-        
+        .gallery-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.overlay-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 10px;
+}
+
+.gallery-item:hover .image-overlay {
+    opacity: 1;
+}
+
+.gallery a {
+    display: block;
+    position: relative;
+}
+
+.gallery img {
+    transition: transform 0.5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
         /* CONTACT SECTION */
         .contact { 
             padding: 100px 20px; 
@@ -290,19 +332,68 @@
     </section>
 
     <!-- PORTFOLIO SECTION -->
-    <section class="portfolio" id="portfolio">
-        <h2 class="section-title">Portfolio</h2>
-        <div class="gallery">
-            <!-- Gruppo 1 - Ritratti -->
+<section class="portfolio" id="portfolio">
+    <h2 class="section-title">Portfolio</h2>
+    <div class="gallery">
+        <!-- Ritratti -->
+        <div class="gallery-item">
             <a href="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" data-fancybox="ritratti" data-caption="Ritratto - Serie 'Volti' (2023)">
                 <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Ritratto maschile">
+                <div class="image-overlay">
+                    <div class="overlay-text">Ritratti</div>
+                </div>
             </a>
-            <a href="https://images.unsplash.com/photo-1496345875659-11f7dd282d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" data-fancybox="ritratti" data-caption="Ritratto - Serie 'Identità' (2024)" style="display:none;">
-                <!-- Questa è nascosta ma farà parte del gruppo -->
+            <a href="https://images.unsplash.com/photo-1496345875659-11f7dd282d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" data-fancybox="ritratti" data-caption="Ritratto - Serie 'Identità' (2024)" style="display:none;"></a>
+        </div>
+
+        <!-- Moda -->
+        <div class="gallery-item">
+            <a href="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" data-fancybox="moda" data-caption="Moda - Editoriale Vogue Italia (2022)">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Editoriale moda">
+                <div class="image-overlay">
+                    <div class="overlay-text">Moda</div>
+                </div>
             </a>
-            <a href="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" data-fancybox="ritratti" data-caption="Ritratto - Serie 'Anime' (2022)" style="display:none;">
-                <!-- Altra immagine nascosta del gruppo -->
+            <a href="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" data-fancybox="moda" data-caption="Moda - Campagna Prada (2021)" style="display:none;"></a>
+        </div>
+
+        <!-- Street Photography -->
+        <div class="gallery-item">
+            <a href="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" data-fancybox="street" data-caption="Street Photography - Tokyo (2021)">
+                <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Scatto street">
+                <div class="image-overlay">
+                    <div class="overlay-text">Street</div>
+                </div>
             </a>
+            <a href="https://images.unsplash.com/photo-1509316785289-025f5b846b35?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" data-fancybox="street" data-caption="Street Photography - New York (2020)" style="display:none;"></a>
+        </div>
+
+        <!-- Architettura -->
+        <div class="gallery-item">
+            <a href="https://images.unsplash.com/photo-1488161628813-04466f872be2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" data-fancybox="architettura" data-caption="Architettura - Milano (2020)">
+                <img src="https://images.unsplash.com/photo-1488161628813-04466f872be2?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Architettura moderna">
+                <div class="image-overlay">
+                    <div class="overlay-text">Architettura</div>
+                </div>
+            </a>
+            <a href="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" data-fancybox="architettura" data-caption="Architettura - Dubai (2019)" style="display:none;"></a>
+        </div>
+
+        <!-- Paesaggi -->
+        <div class="gallery-item">
+            <a href="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" data-fancybox="paesaggi" data-caption="Paesaggio - Dolomiti (2019)">
+                <img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Paesaggio montano">
+                <div class="image-overlay">
+                    <div class="overlay-text">Paesaggi</div>
+                </div>
+            </a>
+            <a href="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" data-fancybox="paesaggi" data-caption="Paesaggio - Toscana (2018)" style="display:none;"></a>
+        </div>
+    </div>
+</section>
+    
+    <!-- Ripeti per gli altri elementi con i rispettivi titoli -->
+</div>
 
             <!-- Gruppo 2 - Moda -->
             <a href="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" data-fancybox="moda" data-caption="Moda - Editoriale Vogue Italia (2022)">
